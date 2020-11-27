@@ -1,15 +1,14 @@
 <?php 
 	
 	include "../app/categoryController.php";
-	include "../app/movieController.php";
-
 	$categoryController = new CategoryController();
-	$movieController = new MovieController();
 
 	$categories = $categoryController->get();
-	$movies = $movieController
 
-	#echo json_encode($categories);
+	if(isset($_SESSION) == false ||isset($_SESSION)['id'] == false)
+	{
+		{header("Location:../");
+	}
 ?>
 <!DOCTYPE html>
 <html>
@@ -45,20 +44,8 @@
 
 		?> 
 
-		<?php if (isset($_SESSION) && isset($_SESSION['error']) ): ?>
-		<h3>
-			Error: <?= $_SESSION['error'] ?>
-		</h3>
-		<?php unset($_SESSION['error']); ?>
-		<?php endif ?>
+		<?php include "../layouts/alerts.template.php"; ?>
 
-		<?php if (isset($_SESSION) && isset($_SESSION['success']) ): ?>
-		<h3>
-			Correcto: <?= $_SESSION['success'] ?>
-		</h3>
-		<?php unset($_SESSION['success']); ?>
-		<?php endif ?>
-		
 		<table>
 			<thead>
 				<th>
@@ -102,6 +89,38 @@
 				</tr>
 					
 				<?php endforeach  ?>
+				
+				<?php   
+
+				// foreach ($categories as $category) {
+					
+				// 	echo "<tr>
+					
+				// 		<td>
+				// 			".$category['id']."
+				// 		</td>
+				// 		<td>
+				// 			".$category['name']."
+				// 		</td>
+				// 		<td>
+				// 			".$category['description']."
+				// 		</td>
+
+				// 		<td>
+				// 			<button onclick='edit(".$category['id'].",\"".$category['name']."\",\"".$category['description']."\",\"".$category['status']."\")' >
+				// 				Edit category
+				// 			</button>
+
+				// 			<button onclick='delete(".$category['id'].")' > Delete category </button>
+
+				// 		</td>
+
+				// 	</tr>";
+
+				// }
+
+
+				?> 
 
 			</tbody>
 		</table>
