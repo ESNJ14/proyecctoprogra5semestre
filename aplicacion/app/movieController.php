@@ -1,14 +1,25 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
 
-if (!isset($_SESSION)) {
-	session_start();
-}
+include_once "app.php";
 include_once "connectionController.php";
 
 if (isset($_POST['action'])) {
+
+	if(isset($_POST['token']) && $_POST['token']) == $_POST['token']))
+	{
+		$authController = new AuthController();
+
+		switch ($_POST['action']) {
+			case 'value':
+				# code...
+				break;
+			
+			default:
+				# code...
+				break;
+		}
+
+	}
 
 	$movieController = new MovieController();
 

@@ -1,13 +1,33 @@
 <?php 
 
-
-if (!isset($_SESSION)) {
-	session_start();
-}
+include_once "app.php";
 include_once "connectionController.php";
 
 if(isset($_POST['action']))
 {
+	if(isset($_POST['token']) && $_POST['token']) == $_POST['token']))
+	{
+		$authController = new AuthController();
+
+		switch ($_POST['action']) {
+			case 'value':
+				# code...
+				break;
+			
+			default:
+				# code...
+				break;
+		}
+
+	}
+	else
+	{
+		$_SESSION['error'] = 'verifique los datos envíados';
+
+		header("Location:". $_SERVER['HTTP_REFERER'] );
+	}
+
+
 	$authController = new AuthController();
 
 	switch ($_POST['action'])
@@ -112,7 +132,7 @@ class AuthController
 						$_SESSION['name']=$user['name']);
 						$_SESSION['email']=$user['email']);
 
-						header("Location:../categories");
+						header("Location:".BASE_PATH."categories");
 
 					}
 

@@ -75,7 +75,7 @@
 		</tbody>
 	</table>
 
-	<form action="../app/movieController.php" method="POST" enctype="multipart/form-data" >
+	<form action="../mmovie" method="POST" enctype="multipart/form-data" >
 		<fieldset>
 			<legend>
 				Add Movie
@@ -131,12 +131,7 @@
 				</option>
 
 				<?php endforeach ?>
-
-				<?php 
-				// foreach ($categories as $category) {
-				// 	echo "<option value=".$category['id']." >". $category['name'] ."</option>";
-				// } 
-				?>
+				
 			</select>
 			<br>
 
@@ -144,7 +139,7 @@
 				Save
 			</button>
 			<input type="hidden" name="action" value="store">
-
+			<imput thype="hidden" name="token" value="<?=$_SESSION['token']?>">
 		</fieldset>
 	</form>
 </body>

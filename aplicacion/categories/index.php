@@ -1,6 +1,6 @@
 <?php 
 	
-	include "../app/categoryController.php";
+	include "../category";
 	$categoryController = new CategoryController();
 
 	$categories = $categoryController->get();
@@ -89,43 +89,11 @@
 				</tr>
 					
 				<?php endforeach  ?>
-				
-				<?php   
-
-				// foreach ($categories as $category) {
-					
-				// 	echo "<tr>
-					
-				// 		<td>
-				// 			".$category['id']."
-				// 		</td>
-				// 		<td>
-				// 			".$category['name']."
-				// 		</td>
-				// 		<td>
-				// 			".$category['description']."
-				// 		</td>
-
-				// 		<td>
-				// 			<button onclick='edit(".$category['id'].",\"".$category['name']."\",\"".$category['description']."\",\"".$category['status']."\")' >
-				// 				Edit category
-				// 			</button>
-
-				// 			<button onclick='delete(".$category['id'].")' > Delete category </button>
-
-				// 		</td>
-
-				// 	</tr>";
-
-				// }
-
-
-				?> 
 
 			</tbody>
 		</table>
 
-		<form id="storeForm" action="../app/categoryController.php" method="POST">
+		<form id="storeForm" action=".<?=BASE_PATH?>/category" method="POST">
 			<fieldset>
 				
 				<legend>
@@ -159,7 +127,7 @@
 			</fieldset>
 		</form>
 
-		<form id="updateForm" action="../app/categoryController.php" method="POST">
+		<form id="updateForm" action="../category" method="POST">
 			<fieldset>
 				
 				<legend>
@@ -194,7 +162,7 @@
 			</fieldset>
 		</form>
 
-		<form id="destroyForm" action="../app/categoryController.php" method="POST">
+		<form id="destroyForm" action="../category" method="POST">
 
 			<input type="hidden" name="action" value="destroy">
 			<input type="hidden" name="id" id="id_destroy">

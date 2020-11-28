@@ -1,8 +1,6 @@
 <?php 
 
-	if (!isset($_SESSION)) {
-		session_start();
-	}
+	include_once "app.php";
 ?>
 
 <!DOCTYPE html>
@@ -41,7 +39,7 @@
 
 		</fieldset>
 
-		<fieldset method="POST" action="../app/authController.php">
+		<fieldset method="POST" action="../auth.php">
 			<legend>
 				Register
 			</legend>
@@ -70,6 +68,7 @@
 			</button>
 
 			<imput thype="hidden" name="action" value="register">
+			<imput thype="hidden" name="token" value="<?=$_SESSION['token']?>">
 
 		</fieldset>
 
